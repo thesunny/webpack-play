@@ -1,4 +1,4 @@
-= README
+# README
 
 * Get WebPack Working
 * Integrate Hot Module Reloading
@@ -7,12 +7,12 @@
 * Integrate into Rails
 
 
-== Best Resource on React Hot Loader and WebPack
+## Best Resource on React Hot Loader and WebPack
 
 * http://gaearon.github.io/react-hot-loader/getstarted/
 * http://webpack.github.io/docs/hot-module-replacement-with-webpack.html
 
-== Starting WebPack
+## Starting WebPack
 
 webpack-dev-server --progress --colors
 
