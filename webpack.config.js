@@ -19,7 +19,6 @@ module.exports = {
       'webpack/hot/dev-server',
       './fe/entry.jsx'
     ],
-    'coffee-play': './fe/coffee-play.coffee',
     'shared': [
       'jquery',
       'react'
@@ -32,8 +31,8 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.coffee$/, loader: 'coffee-jsx-loader'},
-      {test: /\.jsx$/,    loaders: ['react-hot', 'jsx-loader?harmony']},
-      {test: /\.css$/,    loader: cssExtractorPlugin.extract('style-loader', 'css-loader?sourceMa p')},
+      {test: /\.jsx$/,    loaders: ['react-hot', 'jsx-loader?harmony'], exclude: /node_modules/},
+      {test: /\.css$/,    loader: cssExtractorPlugin.extract('style-loader', 'css-loader?sourceMap')},
       {test: /\.sass$/,   loader: cssExtractorPlugin.extract('style-loader', 'css!sass?indentedSyntax=sass&sourceMap')},
       {test: /\.scss$/,   loader: cssExtractorPlugin.extract('style-loader', 'css!sass?sourceMap')},
       {test: /\.md$/,     loader: 'html!markdown-it'}
@@ -47,7 +46,12 @@ module.exports = {
   plugins: [
     cssExtractorPlugin,
     sharedPlugin,
-    new webpack.HotModuleReplacementPlugin(),
+    // NOTE:
+    // This line is necessary if we are using WebpackDevServer as middleware.
+    // It is not necessary if we are using the `webpack-dev-server --hot` on
+    // command line as that will automatically add in the HotModuleReplacementPlugin
+    // for us.
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
 }

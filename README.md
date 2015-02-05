@@ -7,6 +7,10 @@
 * Integrate into Rails
 
 
+== Best Resource on React Hot Loader
+
+* http://gaearon.github.io/react-hot-loader/getstarted/
+
 == Starting WebPack
 
 webpack-dev-server --progress --colors

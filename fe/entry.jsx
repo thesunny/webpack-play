@@ -1,17 +1,19 @@
 // Shared library test
 var $ = require('jquery')
 
-// Markdown test
-var html = require('./SAMPLE-TEXT.md');
-$(document.body).append(html);
+// // Markdown test
+// var html = require('./SAMPLE-TEXT.md');
+// $(document.body).append(html);
 
-// Load SASS test
-var sass = require("./styles.sass");
+// // Load SASS test
+// require("./styles.sass");
 
 var React = require('react');
+var Hello = require('./hello.jsx');
 
-// React JSX Test
-var template = <div>Hello World</div>
+// CoffeeScript
+var Coffee = require('./coffee.coffee');
+console.log(Coffee)
 
 // ES6 Classes Test (Harmony)
 class Person {
@@ -20,6 +22,13 @@ class Person {
     this.lastName = lastName;
   }
 }
+var person = new Person('John', 'Doe');
+console.log(person);
 
-// Use this as a reload test
+$(document).on('ready', function () {
+  var mainElement = $('#main')[0];
+  React.render(<Hello/>, mainElement);
+});
+
+// Use this as a reload test (change the number and save)
 console.log(1);
