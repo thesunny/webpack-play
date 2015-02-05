@@ -2,11 +2,11 @@
 var $ = require('jquery')
 
 // // Markdown test
-// var html = require('./SAMPLE-TEXT.md');
-// $(document.body).append(html);
+var html = require('./SAMPLE-TEXT.md');
+$(document.body).append(html);
 
-// // Load SASS test
-// require("./styles.sass");
+// Load SASS test
+require("./styles.sass");
 
 var React = require('react');
 var Hello = require('./hello.jsx');

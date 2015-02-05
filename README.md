@@ -7,9 +7,10 @@
 * Integrate into Rails
 
 
-== Best Resource on React Hot Loader
+== Best Resource on React Hot Loader and WebPack
 
 * http://gaearon.github.io/react-hot-loader/getstarted/
+* http://webpack.github.io/docs/hot-module-replacement-with-webpack.html
 
 == Starting WebPack
 
