@@ -1,18 +1,25 @@
+// Shared library test
 var $ = require('jquery')
+
+// Markdown test
 var html = require('./SAMPLE-TEXT.md');
+$(document.body).append(html);
 
-require("./styles.sass");
-require('react')
+// Load SASS test
+var sass = require("./styles.sass");
 
-$(document.body).append(html)
+var React = require('react');
 
+// React JSX Test
 var template = <div>Hello World</div>
 
+// ES6 Classes Test (Harmony)
 class Person {
-
   constructor(firstName, lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
-  
 }
+
+// Use this as a reload test
+console.log(1);

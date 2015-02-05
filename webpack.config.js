@@ -14,9 +14,16 @@ var cssExtractorPlugin = new ExtractTextPlugin('[name].css');
 
 module.exports = {
   entry: {
-    'entry': './fe/entry.jsx',
+    'entry': [
+      'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+      'webpack/hot/dev-server',
+      './fe/entry.jsx'
+    ],
     'coffee-play': './fe/coffee-play.coffee',
-    'shared': ['jquery', 'react']
+    'shared': [
+      'jquery',
+      'react'
+    ]
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -25,7 +32,7 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.coffee$/, loader: 'coffee-jsx-loader'},
-      {test: /\.jsx$/,    loader: 'jsx-loader?harmony'},
+      {test: /\.jsx$/,    loaders: ['react-hot', 'jsx-loader?harmony']},
       {test: /\.css$/,    loader: cssExtractorPlugin.extract('style-loader', 'css-loader?sourceMa p')},
       {test: /\.sass$/,   loader: cssExtractorPlugin.extract('style-loader', 'css!sass?indentedSyntax=sass&sourceMap')},
       {test: /\.scss$/,   loader: cssExtractorPlugin.extract('style-loader', 'css!sass?sourceMap')},
@@ -39,6 +46,8 @@ module.exports = {
   },
   plugins: [
     cssExtractorPlugin,
-    sharedPlugin
+    sharedPlugin,
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ]
 }
