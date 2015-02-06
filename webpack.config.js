@@ -30,7 +30,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.coffee$/, loader: 'coffee-jsx-loader'},
+      {test: /\.coffee$/, loaders: ['react-hot', 'coffee-jsx-loader']},
       {test: /\.jsx$/,    loaders: ['react-hot', 'jsx-loader?harmony'], exclude: /node_modules/},
       {test: /\.css$/,    loader: cssExtractorPlugin.extract('style-loader', 'css-loader?sourceMap')},
       {test: /\.sass$/,   loader: cssExtractorPlugin.extract('style-loader', 'css!sass?indentedSyntax=sass&sourceMap')},

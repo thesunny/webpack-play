@@ -9,7 +9,7 @@ $(document.body).append(html);
 require("./styles.sass");
 
 var React = require('react');
-var Hello = require('./hello.jsx');
+var Hello = require('./hello.coffee');
 
 // CoffeeScript
 var Coffee = require('./coffee.coffee');
@@ -27,7 +27,7 @@ console.log(person);
 
 $(document).on('ready', function () {
   var mainElement = $('#main')[0];
-  React.render(<Hello/>, mainElement);
+  React.render(<Hello name="John Doe"/>, mainElement);
 });
 
 // Use this as a reload test (change the number and save)
