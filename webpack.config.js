@@ -12,13 +12,22 @@ var sharedPlugin = new webpack.optimize.CommonsChunkPlugin({
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var cssExtractorPlugin = new ExtractTextPlugin('[name].css');
 
+// helper function to add hot loading modules to an `entry`
+var hot = function () {
+  var modules = [
+    'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+    'webpack/hot/dev-server'
+  ];
+  for (var i=0; i<arguments.length; i++) {
+    modules.push(arguments[i])
+  }
+  return modules;;
+}
+
 module.exports = {
   entry: {
-    'entry': [
-      'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
-      'webpack/hot/dev-server',
-      './fe/entry.jsx'
-    ],
+    // 'entry': hot('./fe/entry.jsx'),
+    'entry': hot('./fe/entry.coffee'),
     'shared': [
       'jquery',
       'react'
